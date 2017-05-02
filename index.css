@@ -13,6 +13,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position:relative;
 }
 .header__logo {
   background-image:url('images/logo.png');
@@ -36,7 +37,7 @@
   width: 47px;
   height: 17px;
   position: absolute;
-  right: 100px;
+  right: 21%;
   top: 100px;
   cursor: pointer;
 }
@@ -95,8 +96,6 @@
   background-image: url('images/projects-bg.png');
   background-repeat: no-repeat;
   background-size: auto;
-
-
 }
 .projects__wrapper {
   position: relative;
@@ -131,7 +130,6 @@
   width: 850px;
   flex-wrap: wrap;
   justify-content: space-between;
-
 }
 .projects__table__elem {
   background-image: url('images/logos.png');
@@ -191,7 +189,7 @@
   opacity: .3;
 }
 .projects__num {
-  margin-top: -40px;
+  margin-top: 110px;
 }
 .team__block-p {
   font-size: 19px;
@@ -211,7 +209,7 @@
   width: 677px;
   height: 719px;
   padding-top: 100px;
-  margin-left: -100px;
+  margin-left: -80px;
 }
 ._kenneth .team__block-wrapper {
   margin-left: 70%;
