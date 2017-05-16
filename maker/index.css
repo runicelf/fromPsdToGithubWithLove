@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,400|Yantramanav');
+:root {
+  background-color: #191e3f;
+  font-family: 'Raleway', sans-serif;
+  --text-color: #fff;
+  color: var(--text-color);
+}
+.header {
+  height: 1200px;
+  background-image: url('images/header-bg.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position:relative;
+}
+.header__logo {
+  background-image:url('images/logo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 127px;
+  height: 78px;
+  margin-top: 80px;
+}
+.header__greeting {
+  font-size: 76px;
+  color: var(--text-color);
+
+  font-weight: 100;
+  margin-top: 350px;
+}
+.header__burger {
+  background-image:url('images/navigation-button.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 47px;
+  height: 17px;
+  position: absolute;
+  right: 21%;
+  top: 100px;
+  cursor: pointer;
+}
+.mountains__photo {
+  background-image:url('images/mountains.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 932px;
+  height: 974px;
+  display:  inline-block;
+  margin-left: -190px;
+  vertical-align: top;
+}
+.mountains__wrapper {
+  width: 1300px;
+  margin: auto;
+}
+._num {
+  display:  inline-block;
+}
+._num ._number {
+  display:  inline-block;
+  font-size: 286px;
+  font-family: 'Yantramanav', sans-serif;
+  font-weight: bold;
+  color: var(--text-color);
+  opacity: .05;
+  vertical-align: top;
+}
+._num ._flipped-text {
+  color: var(--text-color);
+  display: inline-block;
+  transform: rotate(-90deg);
+  font-size: 34px;
+  vertical-align: top;
+  margin-left: -210px;
+  margin-top: 120px;
+}
+.mountains__num {
+  margin-top: 200px;
+}
+.mountains__text {
+  display:  inline-block;
+  color: var(--text-color);
+  width: 450px;
+  margin-left: -285px;
+  margin-top: 200px;
+  vertical-align: top;
+  font-size: 19px;
+}
+
+.mountains__text p:first-child {
+  margin-bottom: 30px;
+}
+.projects {
+  background-image: url('images/projects-bg.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+.projects__wrapper {
+  position: relative;
+  width: 1400px;
+  height: 1250px;
+  margin: auto;
+  z-index: 0;
+}
+.projects__num {
+  vertical-align: top;
+  margin-top: 130px;
+  margin-left: 50px;
+}
+.projects__r {
+  background-image: url('images/r.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 1040px;
+  height: 1234px;
+  position: absolute;
+  top: 0;
+  left: -200px;
+  z-index: -1;
+}
+.projects__table-wrapper {
+  display: inline-block;
+  margin-top: 330px;
+  margin-left: 100px;
+}
+.projects__table {
+  display: flex;
+  width: 850px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.projects__table__elem {
+  background-image: url('images/logos.png');
+  background-repeat: no-repeat;
+  width: 270px;
+  height: 80px;
+  margin-bottom: 80px;
+}
+.projects__strategy {
+  background-position: 30px 6px;
+}
+.projects__headphones {
+  background-position: -250px 8px;
+}
+.projects__badminton {
+  background-position: -570px 0px;
+}
+.projects__football {
+  background-position: 30px -100px;
+}
+.projects__sun {
+  background-position: -250px -100px;
+}
+.projects__saturn {
+  background-position: -570px -100px;
+}
+.team {
+  width: 1400px;
+  margin: auto;
+  position: relative;
+}
+.team__block {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: auto;
+  position: relative;
+}
+.team__block-wrapper{
+ width: 350px;
+ position: absolute;
+}
+.team__block-line {
+  width: 55px;
+  height: 8px;
+  background-color: #fff;
+  margin-bottom: 30px
+}
+.team__block-name {
+  font-size: 38px;
+  display: block;
+  margin-bottom: 20px;
+}
+.team__block-description {
+  font-size: 19px;
+  display: block;
+  margin-bottom: 50px;
+  opacity: .3;
+}
+.projects__num {
+  margin-top: 110px;
+}
+.team__block-p {
+  font-size: 19px;
+  display: block;
+}
+.team__first {
+  margin-bottom: 20px;
+}
+._george {
+  background-image: url('images/george.png');
+  width: 932px;
+  height: 674px;
+  padding-top: 270px;
+}
+._kenneth {
+  background-image: url('images/kenneth.png');
+  width: 677px;
+  height: 719px;
+  padding-top: 100px;
+  margin-left: -80px;
+}
+._kenneth .team__block-wrapper {
+  margin-left: 70%;
+  margin-top: 20%;
+}
+._richard {
+  background-image: url('images/richard.png');
+  width: 677px;
+  height: 719px;
+  margin-left: 120px;
+}
+._richard .team__block-wrapper {
+  margin-top: 40%;
+  margin-left: 10%;
+}
+._judith {
+  background-image: url('images/judith.png');
+  width: 677px;
+  height: 719px;
+  padding-top: 220px;
+  margin-top: -220px;
+}
+._donald {
+  background-image: url('images/donald.png');
+  width: 677px;
+  height: 719px;
+}
+._donald .team__block-wrapper {
+  margin-top: 40%;
+  margin-left: 60%;
+}
+.team__t {
+  background-image: url('images/T.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 1053px;
+  height: 1234px;
+  position: absolute;
+  top: 20%;
+  right: 15%;
+  z-index: -1;
+}
+.event {
+  background-image: url('images/footer-bg.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: bottom;
+  position: relative;
+  height: 1234px;
+  z-index: 0;
+}
+.event__e {
+  background-image: url('images/E.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 926px;
+  height: 1234px;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 10%;
+}
+.event__text-section {
+  width: 480px;
+}
+.event__title {
+  font-size: 72px;
+  margin-bottom: 50px;
+}
+.event__p {
+  font-size: 19px;
+}
+.event__p_first {
+  margin-bottom: 20px;
+}
+.event__wrapper {
+  width: 1100px;
+  margin: auto;
+}
+.event__footer {
+  margin-top: 25%;
+}
+.footer__logo {
+  background-image: url('images/footer-logo.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  width: 87px;
+  height: 54px;
+  margin: 0 auto 40px auto;
+}
+.footer__nav {
+  display: flex;
+  justify-content: space-between;
+  width: 275px;
+  margin: 0 auto 20px auto;
+  opacity: .3;
+}
+.footer__nav__a {
+  color: var(--text-color);
+  display: block;
+}
+.footer__copy {
+  text-align: center;
+  opacity: .3;
+}
