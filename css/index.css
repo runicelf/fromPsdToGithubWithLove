@@ -66,10 +66,7 @@
   align-items: center;
   font-size: 30px;
   transform: rotate(90deg);
-  cursor: pointer;
   transition: .1s linear;
-}
-.main__down-button-a {
   text-decoration: none;
   color: inherit;
 }
