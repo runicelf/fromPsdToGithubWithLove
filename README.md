@@ -1,2 +1,2 @@
-# fromPsdToGithubWithLove
-https://runicelf.github.io/fromPsdToGithubWithLove/
+# portfolio
+Link ti git pages: https://runicelf.github.io/portfolio/
