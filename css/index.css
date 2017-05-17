@@ -65,9 +65,13 @@
   justify-content: center;
   align-items: center;
   font-size: 30px;
-  transform: rotate(-90deg);
+  transform: rotate(90deg);
   cursor: pointer;
   transition: .1s linear;
+}
+.main__down-button-a {
+  text-decoration: none;
+  color: inherit;
 }
 .main__down-button:hover {
   color: var(--our-red);
@@ -183,6 +187,16 @@
 }
 .gallery-block__gallery_maker {
   background-image: url("../images/maker.png");
+}
+.gallery-block__gallery_readtest {
+  background-image: url("../images/readtest.png");
+  background-position: -90px;
+}
+.gallery-block__gallery_bubbles {
+  background-image: url("../images/bubbles.png");
+}
+.gallery-block__gallery_industrial {
+  background-image: url("../images/industrial.png");
 }
 .footer {
   padding: 50px 0;
