@@ -1,2 +1,2 @@
 # portfolio
-Link ti git pages: https://runicelf.github.io/portfolio/
+Link to git pages: https://runicelf.github.io/portfolio/
