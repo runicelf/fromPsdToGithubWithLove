@@ -100,8 +100,9 @@
 .main__nav-elem {
   text-align: center;
   padding-bottom: 5px;
-  cursor: pointer;
   transition: .1s linear;
+  text-decoration: none;
+  color: inherit;
 }
 .main__nav-elem_active {
   border-bottom: 2px solid var(--our-red);
