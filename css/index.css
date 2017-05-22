@@ -26,7 +26,7 @@
 .header__logo {
   font-size: 35px;
   font-weight: bold;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 .header__logo:hover {
   color: var(--our-red);
@@ -66,7 +66,7 @@
 }
 .main__wrapper {
   width: calc(var(--content-width) / 2);
-  padding: 250px 0 50px 0;
+  padding: 250px 0 30px 0;
 }
 .main__down-button {
   width: 50px;
@@ -99,6 +99,7 @@
 }
 .main__contacts {
   display: flex;
+  flex-wrap: wrap-reverse;
   justify-content: space-between;
   max-width: 400px;
 }
@@ -127,6 +128,7 @@
 .address {
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 .address__title {
   font-weight: bold;
@@ -264,6 +266,9 @@
   }
   .main__wrapper {
     width: 100%;
-    padding: 250px 15px 50px 15px;
+    padding: 100px 15px 0 15px;
+  }
+  .main__description {
+    margin-bottom: 80px;
   }
 }
