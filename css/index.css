@@ -156,7 +156,7 @@
   color: var(--our-red);
 }
 .gallery-block__gallery {
-  padding: 50px 10px;
+  padding-top: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -272,6 +272,9 @@
     padding: 0 15px 0 15px;
   }
   .main__description {
-    margin-bottom: 80px;
+    margin-bottom: 50px;
+  }
+  .gallery-block {
+    padding-bottom: 0;
   }
 }
