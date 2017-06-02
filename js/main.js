@@ -1,8 +1,67 @@
-"use strict";
+/**
+ * Created by runicelf on 02.06.2017.
+ */
+'use strict';
+const configObject = {
+    classNameForAnchor: 'animate-anchor',
+    smoothWheelScroll: {
+        enabled : true,
+        scroollDistance: 350,
+        scrollDuration: 500,
+        timingFunction : ((timePassed) => Math.pow(timePassed, 2)),
+        timingFunctionReverse : true
+    },
+    smoothScrollToAnchor : {
+        enablead: true,
+        paddingTop: 50,
+        scrollDuration: 500,
+        timingFunction : ((timePassed) => Math.pow(timePassed, 2)),
+        timingFunctionReverse : true ,
+    },
+};
 
-const navButtons = document.getElementsByClassName('animate-anchor');
+function animate(draw, duration, timing, reverse = true) {
+    let start = performance.now();
+    requestAnimationFrame(function animate(time) {
+        let timeFraction = (time - start) / duration;
+        if (timeFraction < 0) timeFraction = .01;
+        if (timeFraction > 1) timeFraction = 1;
+        const progress = reverse ? 1 - timing(1 - timeFraction) : timing(timeFraction);
+        draw(progress);
+        if (timeFraction < 1) {
+            requestAnimationFrame(animate);
+        }
+    });
+}
 
-function addAnchorsHolder(buttons) {
+function scrollStep(start, direction, commonDistance, timePassed) {
+    const generalDistance = commonDistance;
+    const distance = direction ? timePassed * generalDistance : timePassed * generalDistance * -1;
+    window.scrollTo(0, distance + start);
+}
+
+function scrollToWithAnimate(elemOrDistance, duration, timing, timingReverse, padding) {
+    const currentPosition = window.pageYOffset;
+    if(typeof elemOrDistance === 'number') {
+        animate(
+            scrollStep.bind(null, currentPosition, true, elemOrDistance),
+            duration,
+            timing,
+            timingReverse
+        );
+        return;
+    }
+    const purposePosition =  elemOrDistance.getBoundingClientRect().top + currentPosition,
+        scrollDistance = currentPosition > purposePosition ? currentPosition - purposePosition : purposePosition - currentPosition;
+    animate(
+        scrollStep.bind(null, currentPosition, true, scrollDistance - padding),
+        duration,
+        timing,
+        timingReverse
+    );
+}
+
+function addAnchorsHolder(buttons, duration, timing, timingReverse, padding) {
     Object.keys(buttons).forEach(k => {
         const elem = buttons[k];
         elem.addEventListener('click', (e) => {
@@ -12,59 +71,29 @@ function addAnchorsHolder(buttons) {
             if(!purpose) {
                 throw new Error(`anchor with '${attr}' attribute not found`)
             }
-            scrollToWithAnimate(purpose);
+            scrollToWithAnimate(purpose, duration, timing, timingReverse, padding);
         })
     })
 }
-
-function scrollToWithAnimate(elem) {
-    const currentPosition = window.pageYOffset;
-    const purposePosition =  elem.getBoundingClientRect().top + currentPosition;
-
-    const scrollDistance = currentPosition > purposePosition ? currentPosition - purposePosition : purposePosition - currentPosition;
-
-    const timingFunction = (timePassed) => Math.pow(timePassed, 2);
-    animate(timingFunction, scrollAnimate.bind(null, currentPosition, true), 500);
-
-    function scrollAnimate(start, direction, timePassed) {
-        const speed = scrollDistance - 10;
-        const distance = direction ? timePassed * speed : timePassed * speed * -1;
-        window.scrollTo(0, distance + start);
-    }
-}
-
-function scroll(start, direction, timePassed) {
-    const speed = 350;
-    const distance = direction ? timePassed * speed : timePassed * speed * -1;
-    window.scrollTo(0, distance + start);
-}
-
-function animate(timing, draw, duration) {
-
-    let start = performance.now();
-
-    requestAnimationFrame(function animate(time) {
-        // timeFraction goes from 0 to 1
-        let timeFraction = (time - start) / duration;
-        if (timeFraction < 0) timeFraction = .01;
-        if (timeFraction > 1) timeFraction = 1;
-
-        // calculate the current animation state
-        //let progress = timing(timeFraction);
-        let progress = 1 - timing(1 - timeFraction);
-        draw(progress); // draw it
-
-        if (timeFraction < 1) {
-            requestAnimationFrame(animate);
-        }
+if(configObject.smoothWheelScroll) {
+    document.addEventListener('wheel', function (e) {
+        const directionDown = e.deltaY > 0 ? 1 : -1;
+        e.preventDefault();
+        scrollToWithAnimate(
+            configObject.smoothWheelScroll.scroollDistance * directionDown,
+            configObject.smoothWheelScroll.scrollDuration,
+            configObject.smoothWheelScroll.timingFunction,
+            configObject.smoothWheelScroll.timingFunctionReverse
+        );
     });
 }
-
-document.addEventListener('wheel', function (e) {
-    const directionDown = e.deltaY > 0;
-    e.preventDefault();
-    const timingFunction = (timePassed) => Math.pow(timePassed, 2);
-    animate(timingFunction, scroll.bind(null, window.pageYOffset ,directionDown), 500);
-});
-
-addAnchorsHolder(navButtons);
+if(configObject.smoothScrollToAnchor) {
+    const navButtons = document.getElementsByClassName(configObject.classNameForAnchor);
+    addAnchorsHolder(
+        navButtons,
+        configObject.smoothScrollToAnchor.scrollDuration,
+        configObject.smoothWheelScroll.timingFunction,
+        configObject.smoothWheelScroll.timingFunctionReverse,
+        configObject.smoothScrollToAnchor.paddingTop
+    );
+}
